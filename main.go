@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
 	"context"
-	"time"
+	"fmt"
+	"github.com/PuerkitoBio/goquery"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/PuerkitoBio/goquery"
+	"log"
+	"net/http"
+	"time"
 )
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
