@@ -24,7 +24,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}, nil
 }
 
-func getMetaImage(url string) (string) {
+func getMetaImage(url string) string {
 	// Create HTTP client with timeout
 	client := &http.Client{
 		Timeout: 30 * time.Second,
