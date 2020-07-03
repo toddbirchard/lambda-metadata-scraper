@@ -1,1 +1,2 @@
-# Netlify Metadata Scraper Lambda
+# Netlify Metadata Scraper
+
