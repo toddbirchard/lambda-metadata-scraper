@@ -12,9 +12,9 @@ import (
 )
 
 type Metadata struct {
-	Image String
-	Title String
-	Description String
+	Image string
+	Title string
+	Description string
 }
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
