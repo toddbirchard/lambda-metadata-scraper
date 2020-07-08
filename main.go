@@ -11,6 +11,12 @@ import (
 	"time"
 )
 
+type Metadata struct {
+	Image String
+	Title String
+	Description String
+}
+
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	params := request.QueryStringParameters
 	url := params["url"]
@@ -47,8 +53,11 @@ func getMetaImage(url string) string {
 	}
 
 	// Find the review items
-	image, exists := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
-	if exists == false {
+	title := doc.Find("title").First().Text()
+	image, imgExists := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
+	description, descExists := doc.Find("meta name=\"description\"").First().Attr("content")
+	favicon, iconExists := doc.Find("link rel=\"shortcut\"").First().Attr("href")
+	if imgExists == false {
 		fmt.Println("No image exists.")
 	}
 	return image
