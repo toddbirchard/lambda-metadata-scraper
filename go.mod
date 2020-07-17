@@ -1,4 +1,4 @@
-module scrapemeta
+module https://github.com/toddbirchard/netlify-metadata-scraper
 
 go 1.14
 
