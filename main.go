@@ -19,11 +19,11 @@ type Metadata struct {
 	Favicon     string
 }
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	params := request.QueryStringParameters
 	url := params["url"]
-	pageData := makePageRequest(url)
-	metadataJsonResponse := getPageMetaData(pageData)
+	pageData := MakePageRequest(url)
+	metadataJsonResponse := GetPageMetaData(pageData)
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
@@ -32,31 +32,31 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}, nil
 }
 
-func makePageRequest(url string) *goquery.Document {
+func MakePageRequest(url string) *goquery.Document {
 	// Create HTTP client with timeout
 	client := &http.Client{
 		Timeout: 30 * time.Second,
 	}
 
 	// Make request
-	res, err := client.Get(url)
-	if err != nil {
-		log.Fatal(err)
+	resp, respErr := client.Get(url)
+	if respErr != nil {
+		log.Fatal(respErr)
 	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatal("status code error: %d %s", res.StatusCode, res.Status)
+	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		log.Fatal("status code error: %i", resp.StatusCode)
 	}
 
 	// Load the HTML document
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		log.Fatal(err)
+	doc, docErr := goquery.NewDocumentFromReader(resp.Body)
+	if docErr != nil {
+		log.Fatal(docErr)
 	}
 	return doc
 }
 
-func getPageMetaData(doc *goquery.Document) string {
+func GetPageMetaData(doc *goquery.Document) string {
 	// Find the review items
 	title := doc.Find("title").First().Text()
 	image, imgExists := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
@@ -74,10 +74,10 @@ func getPageMetaData(doc *goquery.Document) string {
 
 	// Create metadata response
 	metadata := &Metadata{
-		Title: title,
-		Image: image,
+		Title:       title,
+		Image:       image,
 		Description: description,
-		Favicon: favicon,
+		Favicon:     favicon,
 	}
 
 	// Return response
@@ -89,6 +89,6 @@ func getPageMetaData(doc *goquery.Document) string {
 }
 
 func main() {
-	// Make the handler available
-	lambda.Start(handler)
+	// Make the Handler available
+	lambda.Start(Handler)
 }
