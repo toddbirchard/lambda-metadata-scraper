@@ -1,4 +1,4 @@
-# Netlify URL Metadata Scraper
+# Lambda Metadata Scraper
 
 ![Go](https://img.shields.io/badge/Go-1.14-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c)
@@ -18,9 +18,9 @@ $ curl https://hackersandslackers.com/.netlify/functions/scrapemeta?url=https://
 **Response:**
 ```json
 {
-   "Title":"Todd Birchard: Engineering, Product, Technology.",
-   "Image":"https://storage.googleapis.com/toddbirchard-cdn/2019/08/cover.jpeg",
-   "Description":"Giant reptile giving technology a good name. Occasional tangents of mass destruction. Made in Silicon Alley.",
-   "Favicon":"/icons/icon-48x48.png"
+   "Title": "Todd Birchard: Engineering, Product, Technology.",
+   "Image": "https://storage.googleapis.com/toddbirchard-cdn/2019/08/cover.jpeg",
+   "Description": "Giant reptile giving technology a good name. Occasional tangents of mass destruction. Made in Silicon Alley.",
+   "Favicon": "/icons/icon-48x48.png"
 }
 ```
