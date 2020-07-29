@@ -1,12 +1,17 @@
-package main
+package main_test
 
 import (
 	"github.com/PuerkitoBio/goquery"
+	main "github.com/toddbirchard/lambda-metadata-scraper"
 	"log"
+	"net/http"
 	"testing"
+	"time"
 )
 
-var client = HttpClient()
+var client = &http.Client{
+	Timeout: 30 * time.Second,
+}
 var resp, respErr = client.Get("https://hackersandslackers.com/")
 
 func TestFetch(t *testing.T) {
@@ -39,6 +44,6 @@ func TestParseMetaData(t *testing.T) {
 		}
 	}
 
-	metadata := &Metadata{title, image, description, favicon}
+	metadata := main.Metadata{Title: title, Image: image, Description: description, Favicon: favicon}
 	log.Println(metadata)
 }
