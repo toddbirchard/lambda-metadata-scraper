@@ -14,7 +14,7 @@ Lambda function which returns basic metadata for a single URL provided as a `?ur
 
 **Request:**
 ```bash
-$ curl https://hackersandslackers.com/.netlify/functions/lambda-metadata-scraper?url=https://toddbirchard.com
+$ curl https://hackersandslackers.com/.netlify/functions/scrape?url=https://toddbirchard.com
 ```
 
 **Response:**
