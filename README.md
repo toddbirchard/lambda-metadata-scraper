@@ -1,8 +1,8 @@
 # Lambda Metadata Scraper
 
-![Go](https://img.shields.io/badge/Go-1.16-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
-![Goquery](https://img.shields.io/badge/Goquery-1.6.1-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
-![AWS Lambda](https://img.shields.io/badge/AWS--Lambda-1.23.0-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
+![Go](https://img.shields.io/badge/Go-1.17-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
+![Goquery](https://img.shields.io/badge/Goquery-1.8.0-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
+![AWS Lambda](https://img.shields.io/badge/AWS--Lambda-1.27.1-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c&logo=GitHub)
 [![GitHub Issues](https://img.shields.io/github/issues/toddbirchard/lambda-metadata-scraper.svg?style=flat-square&colorA=4c566a&colorB=ebcb8b&logo=GitHub)](https://github.com/toddbirchard/lambda-metadata-scraper/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/toddbirchard/lambda-metadata-scraper.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)](https://github.com/toddbirchard/lambda-metadata-scraper/stargazers)
